@@ -390,9 +390,11 @@ a:hover {
 }
 
 .section__lead {
+  display: block;
   margin: 0 0 1.1rem;
-  max-width: none;
+  max-width: none !important;
   width: 100%;
+  box-sizing: border-box;
   color: var(--muted);
   font-size: var(--fs-md);
 }
@@ -458,16 +460,17 @@ a:hover {
   word-break: break-word;
 }
 
-.spec-note {
-  grid-column: 1 / -1;
+/* Sibling under .specs panel — full wrap width, no grid divider */
+.specs + .spec-note {
+  display: block;
   width: 100%;
   max-width: none;
   box-sizing: border-box;
   margin: 0;
   padding: 0.85rem 1rem;
   background: #faf8f6;
-  border: none;
-  border-top: 1px solid var(--line);
+  border: 1px solid var(--line);
+  border-top: none;
   border-left: 3px solid var(--crimson);
   color: var(--muted);
   font-size: var(--fs-sm);
@@ -477,12 +480,6 @@ a:hover {
 .spec-note strong {
   color: var(--ink);
   font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  .spec-note {
-    border-right: none;
-  }
 }
 
 .tip {
@@ -874,19 +871,50 @@ a:hover {
 }
 
 .aside {
+  display: block;
   margin: 0 0 1.1rem;
   padding: 0.8rem 0.95rem;
   background: var(--white);
+  border: 1px solid var(--line);
   border-left: 3px solid var(--crimson);
   color: var(--text);
   font-size: var(--fs-sm);
-  max-width: none;
+  max-width: none !important;
   width: 100%;
+  box-sizing: border-box;
+}
+
+#lift .section__lead,
+#lift .aside,
+#lift .plans {
+  width: 100%;
+  max-width: none;
 }
 
 .aside strong {
   color: var(--ink);
   font-weight: 600;
+}
+
+/* Lift / garage: lead + aside must match plan cards outer width */
+#lift .section__lead,
+#lift .aside,
+#lift .plans {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+#lift .section__lead {
+  display: block;
+}
+
+#lift .section__label {
+  margin-bottom: 0.2rem;
+}
+
+#lift h2 {
+  margin-bottom: 0.4rem;
 }
 
 .tabs {
