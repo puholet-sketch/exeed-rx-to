@@ -449,11 +449,15 @@ a:hover {
 }
 
 .spec-note {
-  margin: 0.85rem 0 0;
-  padding: 0.7rem 0.9rem;
-  max-width: 46rem;
-  background: var(--white);
-  border: 1px solid var(--line);
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background: #faf8f6;
+  border: none;
+  border-top: 1px solid var(--line);
   border-left: 3px solid var(--crimson);
   color: var(--muted);
   font-size: var(--fs-sm);
@@ -463,6 +467,12 @@ a:hover {
 .spec-note strong {
   color: var(--ink);
   font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .spec-note {
+    border-right: none;
+  }
 }
 
 .tip {
