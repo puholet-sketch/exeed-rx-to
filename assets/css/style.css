@@ -359,12 +359,13 @@ a:hover {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--crimson);
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.25rem;
   font-weight: 500;
 }
 
 .section--ink .section__label {
   color: var(--ember);
+  margin-bottom: 0.2rem;
 }
 
 .section h2 {
@@ -372,10 +373,14 @@ a:hover {
   font-weight: 600;
   font-size: clamp(var(--fs-lg), 2.4vw, var(--fs-xl));
   color: var(--ink);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.45rem;
   letter-spacing: -0.02em;
-  max-width: 26ch;
+  max-width: none;
   line-height: 1.2;
+}
+
+.section--ink h2 {
+  margin-bottom: 0.35rem;
 }
 
 .section h2 + .specs,
@@ -385,10 +390,15 @@ a:hover {
 }
 
 .section__lead {
-  margin: 0 0 1.25rem;
-  max-width: 42rem;
+  margin: 0 0 1.1rem;
+  max-width: none;
+  width: 100%;
   color: var(--muted);
   font-size: var(--fs-md);
+}
+
+.section--ink .section__lead {
+  margin-bottom: 1rem;
 }
 
 .muted {
@@ -702,7 +712,8 @@ a:hover {
   margin: 0 0 0.75rem;
   color: var(--muted);
   font-size: var(--fs-sm);
-  max-width: 46rem;
+  max-width: none;
+  width: 100%;
 }
 
 .work-list {
@@ -804,7 +815,7 @@ a:hover {
   position: relative;
   color: var(--text);
   font-size: var(--fs-sm);
-  max-width: 50rem;
+  max-width: none;
 }
 
 .rules__list li::before {
@@ -858,6 +869,8 @@ a:hover {
   margin: 0;
   color: var(--muted);
   font-size: var(--fs-sm);
+  max-width: none;
+  width: 100%;
 }
 
 .aside {
@@ -867,7 +880,8 @@ a:hover {
   border-left: 3px solid var(--crimson);
   color: var(--text);
   font-size: var(--fs-sm);
-  max-width: 46rem;
+  max-width: none;
+  width: 100%;
 }
 
 .aside strong {
