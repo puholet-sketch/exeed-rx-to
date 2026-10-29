@@ -933,19 +933,21 @@ table,
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  min-width: 640px;
+  min-width: 680px;
   font-family: var(--font-body);
   font-size: var(--fs-sm);
   font-weight: 400;
   line-height: 1.45;
+  color: var(--text);
 }
 
+/* 5-col: item | oem | ₽ | alt | ₽ */
 .parts-table .col-item {
-  width: 16%;
+  width: 18%;
 }
 
 .parts-table .col-oem {
-  width: 29%;
+  width: 28%;
 }
 
 .parts-table .col-alt {
@@ -953,25 +955,29 @@ table,
 }
 
 .parts-table .col-price {
-  width: 12.5%;
+  width: 12%;
 }
 
-.parts-table th.col-price {
+.parts-table th.col-price,
+.parts-table td.col-price,
+.parts-table td.price {
   text-align: right;
-  padding-right: 0.65rem;
+  padding-left: 0.4rem;
+  padding-right: 0.7rem;
 }
 
 .parts-table .col-when {
-  width: 14%;
+  width: 16%;
 }
 
+/* 6-col recurring tab */
 .parts-table:has(.col-when) .col-item {
-  width: 14%;
+  width: 16%;
 }
 
 .parts-table:has(.col-when) .col-oem,
 .parts-table:has(.col-when) .col-alt {
-  width: 22%;
+  width: 20%;
 }
 
 .parts-table:has(.col-when) .col-price {
@@ -980,14 +986,14 @@ table,
 
 th,
 td {
-  padding: 0.55rem 0.55rem;
+  padding: 0.65rem 0.7rem;
   text-align: left;
   vertical-align: middle;
   border-bottom: 1px solid var(--line);
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: inherit;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+  font-weight: 400;
 }
 
 th {
@@ -997,11 +1003,11 @@ th {
   background: var(--ink);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: inherit;
+  font-size: var(--fs-sm);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-weight: 600;
-  line-height: inherit;
+  line-height: 1.45;
 }
 
 tr:last-child td {
@@ -1012,73 +1018,75 @@ tbody tr:nth-child(even) td {
   background: rgba(243, 241, 239, 0.45);
 }
 
-.col-item {
-  width: 17%;
-}
-
-.col-oem {
-  width: 30%;
-}
-
-.col-alt {
-  width: 31%;
+.col-item,
+.col-oem,
+.col-alt,
+.col-when {
+  text-align: left;
 }
 
 .col-price {
-  width: 11%;
   white-space: nowrap;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-th.col-price,
-td.col-price,
 td.price,
 .price {
-  text-align: right;
-}
-
-td.price,
-.price {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.45;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   color: var(--ink);
   white-space: nowrap;
-  width: 11%;
-  padding-left: 0.35rem;
-  padding-right: 0.65rem;
+  text-align: right;
 }
 
+/* Hierarchy by color only — same size as cell */
 table .muted,
 .parts-table .muted {
-  font-size: inherit;
+  display: inline;
+  font-family: inherit;
+  font-size: 1em;
   line-height: inherit;
   font-weight: 400;
+  color: var(--muted);
+  opacity: 1;
 }
 
 table strong,
 .parts-table strong {
-  font-size: inherit;
+  font-family: inherit;
+  font-size: 1em;
   font-weight: 600;
   line-height: inherit;
 }
 
-td code,
-table code,
-.parts-table code {
+/* Mono only for part numbers — same metrics as Onest cell */
+.parts-table code,
+td code {
   font-family: var(--font-mono);
   font-size: 1em;
   font-weight: 500;
-  line-height: inherit;
+  line-height: 1.45;
   background: var(--chip);
   color: var(--ink);
-  padding: 0.05em 0.28em;
+  padding: 0.12em 0.35em;
   border-radius: 2px;
   white-space: nowrap;
   vertical-align: baseline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.parts-table .warn {
+  display: inline;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: inherit;
+  color: var(--crimson-deep);
 }
 
 .mono {
@@ -1089,7 +1097,7 @@ table code,
   line-height: inherit;
   background: var(--chip);
   color: var(--ink);
-  padding: 0.05em 0.28em;
+  padding: 0.12em 0.35em;
   border-radius: 2px;
 }
 
