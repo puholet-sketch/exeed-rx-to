@@ -365,7 +365,7 @@ a:hover {
 
 .section--ink .section__label {
   color: var(--ember);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .section h2 {
@@ -380,7 +380,8 @@ a:hover {
 }
 
 .section--ink h2 {
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.2rem;
+  line-height: 1.15;
 }
 
 .section h2 + .specs,
@@ -393,14 +394,29 @@ a:hover {
   display: block;
   margin: 0 0 1.1rem;
   max-width: none !important;
-  width: 100%;
+  width: 100% !important;
   box-sizing: border-box;
   color: var(--muted);
   font-size: var(--fs-md);
 }
 
 .section--ink .section__lead {
-  margin-bottom: 1rem;
+  margin: 0 0 0.85rem;
+}
+
+/* РЕГЛАМЕНТ header cluster: label → H2 → lead — dense */
+#schedule .section__label {
+  margin: 0 0 0.1rem;
+}
+
+#schedule h2 {
+  margin: 0 0 0.15rem;
+}
+
+#schedule .section__lead {
+  margin: 0 0 0.85rem;
+  max-width: none !important;
+  width: 100% !important;
 }
 
 .muted {
@@ -409,12 +425,22 @@ a:hover {
   font-weight: 400;
 }
 
-/* —— Specs: self-contained rows; 2-col with divider, never glue —— */
+/* —— Specs panel + VIN note (same outer width, no grid bleed) —— */
+.specs-block {
+  display: block;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
 .specs {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid var(--line);
+  border-bottom: none;
   background: var(--white);
 }
 
@@ -424,7 +450,7 @@ a:hover {
     column-gap: 0;
   }
 
-  .spec:nth-child(odd) {
+  .specs > .spec:nth-child(odd) {
     border-right: 1px solid var(--line);
   }
 }
@@ -437,6 +463,10 @@ a:hover {
   padding: 0.7rem 1rem;
   border-bottom: 1px solid var(--line);
   min-width: 0;
+}
+
+.specs > .spec:nth-last-child(-n + 2) {
+  border-bottom: 1px solid var(--line);
 }
 
 .spec__k {
@@ -460,21 +490,28 @@ a:hover {
   word-break: break-word;
 }
 
-/* Sibling under .specs panel — full wrap width, no grid divider */
-.specs + .spec-note {
-  display: block;
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-  margin: 0;
+/* Full width of specs-block — never a grid cell */
+.specs-block > .spec-note,
+.specs + .spec-note,
+p.spec-note {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 100%;
+  box-sizing: border-box !important;
+  float: none !important;
+  clear: both;
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
   padding: 0.85rem 1rem;
   background: #faf8f6;
   border: 1px solid var(--line);
-  border-top: none;
   border-left: 3px solid var(--crimson);
   color: var(--muted);
   font-size: var(--fs-sm);
   line-height: 1.45;
+  grid-column: unset !important;
 }
 
 .spec-note strong {
@@ -884,13 +921,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-#lift .section__lead,
-#lift .aside,
-#lift .plans {
-  width: 100%;
-  max-width: none;
-}
-
 .aside strong {
   color: var(--ink);
   font-weight: 600;
@@ -900,21 +930,18 @@ a:hover {
 #lift .section__lead,
 #lift .aside,
 #lift .plans {
-  width: 100%;
-  max-width: none;
+  display: block;
+  width: 100% !important;
+  max-width: none !important;
   box-sizing: border-box;
 }
 
-#lift .section__lead {
-  display: block;
-}
-
 #lift .section__label {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
 #lift h2 {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .tabs {
