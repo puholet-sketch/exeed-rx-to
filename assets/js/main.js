@@ -3,15 +3,24 @@
   const nav = document.querySelector("[data-nav]");
 
   if (burger && nav) {
-    burger.addEventListener("click", () => {
-      const open = nav.classList.toggle("nav--open");
+    const setNavOpen = (open) => {
+      nav.classList.toggle("nav--open", open);
       burger.setAttribute("aria-expanded", String(open));
+    };
+
+    burger.addEventListener("click", () => {
+      setNavOpen(!nav.classList.contains("nav--open"));
     });
     nav.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        nav.classList.remove("nav--open");
-        burger.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", () => setNavOpen(false));
+    });
+    document.addEventListener("click", (e) => {
+      if (!nav.classList.contains("nav--open")) return;
+      if (nav.contains(e.target) || burger.contains(e.target)) return;
+      setNavOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setNavOpen(false);
     });
   }
 
