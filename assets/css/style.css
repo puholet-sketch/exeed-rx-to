@@ -442,6 +442,23 @@ a:hover {
   word-break: break-word;
 }
 
+.spec-note {
+  margin: 0.85rem 0 0;
+  padding: 0.7rem 0.9rem;
+  max-width: 46rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--crimson);
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+}
+
+.spec-note strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .tip {
   position: relative;
   border-bottom: 1px dashed var(--ember);
