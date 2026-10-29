@@ -208,7 +208,7 @@ a:hover {
 
 .hero {
   position: relative;
-  min-height: min(68vh, 620px);
+  min-height: min(58vh, 560px);
   display: grid;
   align-items: end;
   overflow: hidden;
@@ -376,6 +376,12 @@ a:hover {
   letter-spacing: -0.02em;
   max-width: 26ch;
   line-height: 1.2;
+}
+
+.section h2 + .specs,
+.section h2 + .tabs,
+.section h2 + .plan-board {
+  margin-top: 1.1rem;
 }
 
 .section__lead {
@@ -1065,10 +1071,10 @@ table code,
 
 .cost-card {
   margin: 0.85rem 0 0;
-  padding: 1rem 1.05rem 0.95rem;
+  padding: 0;
   background: var(--white);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--crimson);
+  overflow: hidden;
 }
 
 .cost-card__label {
@@ -1076,9 +1082,11 @@ table code,
   font-size: var(--fs-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--crimson);
-  margin: 0 0 0.2rem;
+  color: var(--white);
+  margin: 0;
   font-weight: 500;
+  background: var(--ink);
+  padding: 0.55rem 1.05rem;
 }
 
 .cost-card__title {
@@ -1086,8 +1094,22 @@ table code,
   font-size: var(--fs-lg);
   font-weight: 600;
   color: var(--ink);
-  margin: 0 0 0.75rem;
+  margin: 0;
   line-height: 1.25;
+  padding: 0.85rem 1.05rem 0.55rem;
+}
+
+.cost-card .cost-breakdown {
+  padding: 0 1.05rem;
+}
+
+.cost-card__hint {
+  margin: 0;
+  padding: 0.65rem 1.05rem 0.95rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  line-height: 1.45;
 }
 
 .cost-breakdown {
@@ -1146,15 +1168,6 @@ table code,
 
 .cost-breakdown__row--sub dd {
   font-weight: 600;
-}
-
-.cost-card__hint {
-  margin: 0.75rem 0 0;
-  padding-top: 0.65rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: var(--fs-xs);
-  line-height: 1.45;
 }
 
 .cost-card__hint strong {
@@ -1404,7 +1417,7 @@ table code,
   table {
     table-layout: auto;
     min-width: 40rem;
-    font-size: var(--fs-xs);
+    font-size: var(--fs-sm);
   }
 
   .parts-table:has(.col-when) {
@@ -1456,8 +1469,12 @@ table code,
     font-size: var(--fs-xs);
   }
 
-  .cost-card {
-    padding: 0.85rem 0.8rem 0.8rem;
+  .cost-card__label,
+  .cost-card__title,
+  .cost-card .cost-breakdown,
+  .cost-card__hint {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
 
   .cost-breakdown__row--total dt,
