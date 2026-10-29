@@ -1012,6 +1012,105 @@ code {
   display: inline;
 }
 
+.cost-card {
+  margin: 0.85rem 0 0;
+  padding: 1rem 1.05rem 0.95rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--crimson);
+}
+
+.cost-card__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin: 0 0 0.2rem;
+  font-weight: 500;
+}
+
+.cost-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.cost-breakdown {
+  margin: 0;
+  padding: 0;
+}
+
+.cost-breakdown__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-sm);
+}
+
+.cost-breakdown__row dt {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.cost-breakdown__row dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cost-breakdown__fixed {
+  color: var(--crimson-deep) !important;
+}
+
+.cost-breakdown__row--total {
+  margin-top: 0.15rem;
+  padding-top: 0.65rem;
+  border-top: 2px solid var(--ink);
+  background: #faf8f6;
+  margin-inline: -0.35rem;
+  padding-inline: 0.35rem;
+}
+
+.cost-breakdown__row--total dt,
+.cost-breakdown__row--total dd {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: var(--fs-md);
+}
+
+.cost-breakdown__row--sub dt {
+  color: var(--muted);
+}
+
+.cost-breakdown__row--sub dd {
+  font-weight: 600;
+}
+
+.cost-card__hint {
+  margin: 0.75rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+}
+
+.cost-card__hint strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .note {
   margin: 0.75rem 0 0;
   padding: 0.7rem 0.85rem;
@@ -1304,6 +1403,19 @@ code {
 
   .note {
     font-size: var(--fs-xs);
+  }
+
+  .cost-card {
+    padding: 0.85rem 0.8rem 0.8rem;
+  }
+
+  .cost-breakdown__row--total dt,
+  .cost-breakdown__row--total dd {
+    font-size: var(--fs-sm);
+  }
+
+  .cost-breakdown__row dd {
+    white-space: normal;
   }
 
   .aside {
