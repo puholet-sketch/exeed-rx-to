@@ -1706,6 +1706,15 @@ td code {
   line-height: 1.45;
 }
 
+.report-callout--done {
+  border-color: #b7d4c0;
+  background: #eef7f0;
+}
+
+.report-callout--done .report-callout__label {
+  background: var(--ok);
+}
+
 .report-receipts {
   margin: 1.35rem 0 0;
 }
@@ -1716,6 +1725,10 @@ td code {
   color: var(--muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.report-receipts__label--next {
+  margin-top: 1.1rem;
 }
 
 .report-receipts__grid {
